@@ -13,14 +13,15 @@ class Test5 {
     }
 
     @test fun testDestroy() {
-        var testString: String = "dabAcCaCBAcCcaDA"
-
+        val testString: String = "dabAcCaCBAcCcaDA"
         assertEquals("dabCBAcaDA", selfDestruct(testString))
     }
 
     @test fun testDestroyTestPolymer() {
-        var testString: String = readFileAsStrings(ClassLoader.getSystemResource("5.in").file).first()
-
-        assertEquals(9900,  selfDestruct(testString).length)
+        val testString: String = readFileAsStrings(ClassLoader.getSystemResource("5.in").file).first()
+        val minPolymer = testString.toLowerCase().toCharArray().distinct().map{ it to selfDestruct(removeCharacter(it, testString)).length }.toMap().minBy { it.value }
+        println(minPolymer!!.value)
+        assertEquals(4992, minPolymer.value)
+        assertEquals('o', minPolymer.key)
     }
 }

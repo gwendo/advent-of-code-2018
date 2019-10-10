@@ -21,3 +21,7 @@ fun selfDestruct(polymer: String): String {
     }
     return polymerString
 }
+
+fun removeCharacter(a: Char, myString: String) : String {
+    return myString.replace(a.toLowerCase().toString(), "").replace(a.toUpperCase().toString(), "")
+}

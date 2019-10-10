@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="se.radicalcode.aoc.Test5" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-09T22:58:24" hostname="mcfast.localdomain" time="0.701">
-  <properties/>
-  <testcase name="testDestroyTestPolymer" classname="se.radicalcode.aoc.Test5" time="0.701"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

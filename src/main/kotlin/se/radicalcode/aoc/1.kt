@@ -9,13 +9,13 @@ fun main(args: Array<String>) {
 fun <T> Sequence<T>.repeat() = sequence { while (true) yieldAll(this@repeat)}
 
 fun findDuplicateFrequencies(numbers: List<Int>) : Int {
-    var frequencies = mutableListOf<Int>(0)
-    var infiniteNumbers = numbers.asSequence().repeat().iterator()
+    val frequencies = mutableListOf<Int>(0)
+    val infiniteNumbers = numbers.asSequence().repeat().iterator()
 
     var dupFound = false;
     while (!dupFound) {
-        var currChange = infiniteNumbers.next()
-        var currFreq = frequencies.last() + currChange
+        val currChange = infiniteNumbers.next()
+        val currFreq = frequencies.last() + currChange
         dupFound = frequencies.contains(currFreq)
         frequencies.add(currFreq);
     }
