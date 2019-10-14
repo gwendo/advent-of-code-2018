@@ -1,13 +1,13 @@
 package se.radicalcode.aoc
 
-data class Player(val id: Int, var score: Int)
+data class Player(val id: Int, var score: Long)
+
 
 class Game(private val numberOfPlayers:Int, private val numberOfMarbles: Int) {
     val gameBoard: MutableCircularList<Int> = ArrayList<Int>().circular()
     var players: List<Player>? = null
     var currentMarble = 0
     var currentMarbleIndex = 0
-    var curr = 0
     var currentPlayer: Player? = null
 
     fun initGame() {
@@ -30,7 +30,6 @@ class Game(private val numberOfPlayers:Int, private val numberOfMarbles: Int) {
             currentMarbleIndex = gameBoard.trueIndex(currentMarbleIndex - 7)
             currentPlayer!!.score += gameBoard.removeAt(gameBoard.trueIndex(currentMarbleIndex))
 
-
         } else {
                 currentMarbleIndex = gameBoard.trueIndex(currentMarbleIndex + 2)
                 currentMarbleIndex = gameBoard.addAndReturnTrueIndex(currentMarbleIndex, turn)
@@ -38,7 +37,7 @@ class Game(private val numberOfPlayers:Int, private val numberOfMarbles: Int) {
         }
         //println(this.toString())
         if (turn % 100000 == 0 ) {
-            println(turn)
+            //println(turn)
         }
     }
 
@@ -78,9 +77,9 @@ class CircularList<out T>(private val list: List<T>) : List<T> by list {
 
     override fun toString(): String =
         list.toString()
-
-
 }
+
+
 fun <T> List<T>.circular(): CircularList<T> = CircularList(this)
 fun <T> MutableList<T>.circular(): MutableCircularList<T> = MutableCircularList(this)
 
